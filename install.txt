@@ -33,3 +33,6 @@ pip install tensorflow==2.10
 #python
 >>> import tensorflow as tf
 >>> len(tf.config.list_physical_devices('GPU'))
+
+
+https://forum.level1techs.com/t/tensorflow-v2-w-cuda-remote-wsl2/204220
