@@ -1,0 +1,35 @@
+sudo apt-get update sudo apt-get upgrade
+sudo apt install python3-pip
+pip install --upgrade pip
+sudo apt install python3-venv
+python3 -m venv tf-gpu
+source tf-gpu/bin/activate
+
+pip install tensorflow[and-cuda]
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+____________________________________________________________________________________
+wsl --install -d unbuntu
+wget https://repo.anaconda.com/archive/Anaconda3-2023.09-0-Linux-x86_64.sh
+bash Anaconda3-2023.09-0-Linux-x86_64.sh
+conda --version
+sudo apt-key del 7fa2af80
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu2004/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/ /"
+sudo apt-get install libcudnn8
+sudo apt-get install libcudnn8-dev
+sudo apt-get update && sudo apt-get upgrade
+conda create -n tf python=3.9 -y
+conda activate tf
+pip install tensorflow==2.10
+#python
+>>> import tensorflow as tf
+>>> len(tf.config.list_physical_devices('GPU'))
